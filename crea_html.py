@@ -1,3 +1,22 @@
+def doctype():
+  c1 = '''
+  <!DOCTYPE html>
+  <html>
+  <head>
+  '''
+
+  fil.write(c1)
+
+def title(tit=''):
+  title = '<title>' + tit + '</title>'
+  fil.write(title)
+
+def body():
+  body1 = '''
+  </head>
+  <body>
+  '''
+  fil.write(body1)
 
 def H1(t1=''):
   h1 = '<h1>' + t1 + '</h1>' 
@@ -7,48 +26,43 @@ def P(t1=''):
   p1 = '<p>' + t1 + '</p>'
   fil.write(p1)
 
+def lista_ordenada(lista=''):
+  fil.write('<ol>')
+
+  for ss in lista:
+    s = '<li>' + ss + '</li>'
+    fil.write(s)
+
+  fil.write('</ol>')
+
+
+def resto():
+  resto = '''
+  </body>
+  </html>
+  '''
+  fil.write(resto)
+
+# inicio
+
 file = 'prueba.html'
 fil = open(file, 'w')
 
-c1 = '''
-<!DOCTYPE html>
-<html>
-<head>
-'''
-
-t1 = 'hola'
-
-fil.write(c1)
-
-title = '<title>' + t1 + '</title>'
-
-fil.write(title)
-
-body = '''
-</head>
-<body>
-'''
-
-fil.write(body)
-
-t1 = 'This is a Heading'
-
-h1 = '<h1>' + t1 + '</h1>'
-
-fil.write(h1)
+doctype()
+title('holas')
+body()
 
 H1('hola')
 
-t2 = 'This is a paragraph.'
+fil.write('<font size="5">')
 
-p1 = '<p>' + t2 + '</p>'
+P('hola')
 
-fil.write(p1)
+list = ['uno', 'dos', 'tres', 'cuatro']
 
-resto = '''
-</body>
-</html>
-'''
+lista_ordenada(list)
+fil.write('</font>')
 
-fil.write(resto)
+resto()
+
 
